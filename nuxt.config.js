@@ -10,7 +10,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  loading: { color: '#3B8070' },
+  loading: { color: '#409EFF' },
   css: ['element-ui/lib/theme-chalk/index.css'],
   plugins: [
     { src: '~/plugins/element-ui', ssr: true }
