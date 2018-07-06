@@ -1,8 +1,19 @@
 <template>
-  <div>
+  <main>
+    <Header />
     <nuxt/>
-  </div>
+  </main>
 </template>
+
+<script>
+  import Header from '@/components/Header'
+
+  export default {
+    components: {
+      Header
+    }    
+  }
+</script>
 
 <style>
 html {
@@ -19,6 +30,13 @@ html {
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+main {
+  max-width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
 }
 
 .button--green {
