@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
     <el-menu-item index="1">
       <nuxt-link to="/">Home</nuxt-link>
     </el-menu-item>
@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {
         activeIndex: '1',
         activeIndex2: '1'
