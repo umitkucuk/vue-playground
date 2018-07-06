@@ -13,7 +13,7 @@ module.exports = {
   loading: { color: '#3B8070' },
   css: ['element-ui/lib/theme-chalk/index.css'],
   plugins: [
-    { src: '~/plugins/element-ui', ssr: false }
+    { src: '~/plugins/element-ui', ssr: true }
   ],
   build: {
     babel: {
