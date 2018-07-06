@@ -11,7 +11,14 @@ module.exports = {
     ]
   },
   loading: { color: '#3B8070' },
+  css: ['element-ui/lib/theme-chalk/index.css'],
+  plugins: [
+    { src: '~/plugins/element-ui', ssr: false }
+  ],
   build: {
+    babel: {
+      plugins: ['transform-decorators-legacy', 'transform-class-properties']
+    },
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
@@ -22,11 +29,5 @@ module.exports = {
         })
       }
     }
-  },
-  css: [
-    'element-ui/lib/theme-chalk/index.css'
-  ],
-  plugins: [
-    '@/plugins/element-ui'
-  ]
+  }
 }
