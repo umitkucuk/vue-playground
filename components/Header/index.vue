@@ -6,6 +6,15 @@
     <el-menu-item index="2">
       <nuxt-link to="/about">About</nuxt-link>
     </el-menu-item>
+    <el-menu-item index="3">
+      <nuxt-link to="/epics">Epics</nuxt-link>
+    </el-menu-item>
+    <el-menu-item index="4">
+      <nuxt-link to="/sprints">Sprints</nuxt-link>
+    </el-menu-item>
+    <el-menu-item index="5">
+      <nuxt-link to="/app-sections">App Sections</nuxt-link>
+    </el-menu-item>
   </el-menu>
 </template>
 
