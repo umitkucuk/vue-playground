@@ -1,18 +1,18 @@
 <template>
-  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
-    <el-menu-item index="1">
+  <el-menu :default-active="$route.path" mode="horizontal" router>
+    <el-menu-item index="/">
       <nuxt-link to="/">Home</nuxt-link>
     </el-menu-item>
-    <el-menu-item index="2">
+    <el-menu-item index="/about">
       <nuxt-link to="/about">About</nuxt-link>
     </el-menu-item>
-    <el-menu-item index="3">
+    <el-menu-item index="/epics">
       <nuxt-link to="/epics">Epics</nuxt-link>
     </el-menu-item>
-    <el-menu-item index="4">
+    <el-menu-item index="/sprints">
       <nuxt-link to="/sprints">Sprints</nuxt-link>
     </el-menu-item>
-    <el-menu-item index="5">
+    <el-menu-item index="/app-sections">
       <nuxt-link to="/app-sections">App Sections</nuxt-link>
     </el-menu-item>
   </el-menu>
@@ -20,12 +20,7 @@
 
 <script>
   export default {
-    data () {
-      return {
-        activeIndex: '1',
-        activeIndex2: '1'
-      };
-    }
+
   }
 </script>
 
