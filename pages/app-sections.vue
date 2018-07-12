@@ -1,9 +1,6 @@
 <template>
-  <section v-if="isLoading">
-    <Loading />
-  </section>
-  <section v-else>
-    <el-table :data="items" style="width: 100%">
+  <section>
+    <el-table v-loading="loading" :data="items" style="width: 100%">
       <el-table-column
         type="index"
         width="40">
@@ -31,23 +28,19 @@
   import Component from 'nuxt-class-component'
   import axios from 'axios'
 
-  import Loading from '@/components/Loading'
-
-  @Component({
-    components: { Loading }
-  })
+  @Component
   export default class AppSections extends Vue {
     items = []
-    isLoading = true
+    loading = false
     
     mounted () {
       this.loadItems()
-      this.isLoading = false
     }
 
     loadItems () {
-      axios.get('https://api.airtable.com/v0/appNQ5GNluxZKls51/App%20Sections?api_key=keymJwFHjpkwy7E3C')
-        .then(response => this.items = response.data.records)
+      this.loading = true
+      axios.get('https://api.airtable.com/v0/appNQ5GNluxZKls51/Sprints?api_key=keymJwFHjpkwy7E3C')
+        .then(response => { this.loading = false; this.items = response.data.records })
         .catch(error => console.log(error))
     }
   }
