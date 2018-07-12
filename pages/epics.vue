@@ -18,12 +18,12 @@
       <el-table-column
         prop="fields.Epic Title"
         label="Epic Title"
-        width="180">
+        width="150">
       </el-table-column>
       <el-table-column
         prop="fields.Description"
         label="Description"
-        width="180">
+        width="150">
       </el-table-column>
       <el-table-column
         prop="fields.RobEst"
@@ -37,7 +37,15 @@
       </el-table-column>
       <el-table-column
         prop="fields.Stories"
-        label="Stories">
+        label="Stories"
+        width="140">
+      </el-table-column>
+      <el-table-column
+        prop="id"
+        label="Actions">
+        <template slot-scope="scope">
+          <el-button type="text" @click="deleteRow(scope.$index, items, scope.row.id)">Delete</el-button>
+        </template>
       </el-table-column>
     </el-table>
   </section>
@@ -62,6 +70,42 @@
       axios.get('https://api.airtable.com/v0/appNQ5GNluxZKls51/Epics?api_key=keymJwFHjpkwy7E3C')
         .then(response => { this.loading = false; this.items = response.data.records })
         .catch(error => console.log(error))
+    }
+
+    deleteRow (index, rows, id) {
+      const h = this.$createElement
+        this.$msgbox({
+          title: 'Wait a sec 😕',
+          message: h('p', null, [
+            h('span', null, 'Are you sure you want to delete this row?'),
+          ]),
+          showCancelButton: true,
+          confirmButtonText: 'Absolutely',
+          cancelButtonText: 'Let me think again',
+          beforeClose: (action, instance, done) => {
+            if (action === 'confirm') {
+              instance.confirmButtonLoading = true
+              instance.confirmButtonText = 'Loading...'
+              
+              axios.delete(`https://api.airtable.com/v0/appNQ5GNluxZKls51/Epics/${id}`, {
+                headers: {
+                  'Authorization': 'Bearer keymJwFHjpkwy7E3C'
+                }
+              }).then(response => {
+                  instance.confirmButtonLoading = false
+                  rows.splice(index, 1)
+                  done()
+                })
+            } else {
+              done()
+            }
+          }
+        }).then(action => {
+          this.$message({
+            type: 'success',
+            message: 'Row deleted successfully 🤘'
+          })
+        })
     }
   }
 </script>
