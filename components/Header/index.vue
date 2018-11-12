@@ -15,6 +15,9 @@
     <el-menu-item index="/app-sections">
       <nuxt-link to="/app-sections">App Sections</nuxt-link>
     </el-menu-item>
+    <el-menu-item index="/SaltPage">
+      <nuxt-link to="/SaltPage">Salt Examples</nuxt-link>
+    </el-menu-item>
   </el-menu>
 </template>
 
