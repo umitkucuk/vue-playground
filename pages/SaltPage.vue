@@ -2,9 +2,13 @@
   <div style="text-align: center; align-items: center; align-content: center">
   <section>
     <br>
-    <h2>Salt Vue Examples</h2>
+       <h2>Salt Vue Examples</h2>
     <br>
     <hr>
+    <br>
+      <h3>
+        Greeting
+      </h3>
     <br>
         <div>
           <el-input placeholder="Please Enter Your Name" v-model="input"></el-input>
@@ -13,6 +17,11 @@
         <el-button :plain="true" type="primary" round @click="greeting(input) ">
           Click Me
         </el-button>
+    <br><br>
+    <h3>Todo list comin.</h3>
+    <br>
+    <hr>
+    <br>
 
         <div>
           <el-table
