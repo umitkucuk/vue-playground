@@ -29,7 +29,7 @@
             style="width: auto"
           >
             <el-table-column
-              prop=""
+              prop="arr"
               label="Inputs"
             >
             </el-table-column>
@@ -49,17 +49,13 @@
 
   @Component
   export default class SaltPage extends Vue {
-    data() {
-      return {
-        value2: 3
-      }
-    }
     arr = [];
+
     greeting (input) {
         this.$message( "Welcome " + input);
         console.log(this.arr + input);
         this.arr.push(input);
-        console.log(this.arr)
+        console.log(this.arr);
 
     }
 
