@@ -11,16 +11,11 @@
       </h3>
       <br>
       <div>
-        <el-input v-bind:id="inputx" type="text" placeholder="Please Enter Your Name" v-model="inputx"></el-input>
+        <el-input type="text" placeholder="Please Enter Your Name" v-model="inputName"></el-input>
       </div>
       <br>
-      <keep-alive>
-        <el-button :plain="true" type="primary" v-bind:disabled=!isDisable  v-on:click="greeting(inputx)" >
-          Click Me
-        </el-button>
-      </keep-alive>
-      <el-button :plain="true" type="primary"   v-on:click="toggle()" >
-        Toggle
+      <el-button :disabled="inputName === ''" :plain="true" type="primary" @click="greeting(inputName)" >
+        Click Me
       </el-button>
       <br><br>
       <h3>Todo list comin.</h3>
@@ -51,36 +46,21 @@
   import Vue from 'vue'
   import Component from 'nuxt-class-component'
 
-
   @Component
   export default class SaltPage extends Vue {
-    arr = [];
-    inputx = "";
-    isDisable = false;
-
+    arr = []
+    inputName = ''
 
     computed(){
       this.toggle()
     }
 
+    greeting (inputName) {
+      this.$message( "Welcome " + this.inputName)
+      console.log(this.inputName.length)
 
-    toggle(){
-
-      if(this.inputx.length > 0){
-        this.isDisable=true
-      }else {
-        this.isDisable=false
-      }
-      console.log(this.isDisable)
-    }
-
-
-    greeting (inputx) {
-      this.$message( "Welcome " + this.inputx);
-      console.log(this.inputx.length);
-
-      this.arr.push(this.inputx);
-      console.log(this.arr);
+      this.arr.push(this.inputName)
+      console.log(this.arr)
     }
   }
 </script>
